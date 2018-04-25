@@ -14,4 +14,4 @@ RUN pip install \
  google-auth-httplib2==0.0.3 \
  ipaddress==1.0.18 \
  httplib2==0.10.3 \
- ansible-modules-hashivault==3.8.2
+ ansible-modules-hashivault==3.9.3
