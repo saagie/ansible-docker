@@ -6,7 +6,7 @@ RUN  yum install epel-release -y \
 RUN pip install \
  netaddr==0.7.19 \
  pycrypto==2.6.1 \
- ansible==2.4.3.0 \
+ ansible==2.5.1 \
  httpie==0.9.9 \
  git+git://github.com/apache/libcloud.git@v2.3.0 \
  google-api-python-client==1.6.5 \
