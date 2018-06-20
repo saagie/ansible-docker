@@ -1,7 +1,10 @@
 FROM centos:centos7
 
 RUN  yum install epel-release -y \
-    && yum install bc jq pwgen python-pip python-devel gcc git -y
+    && yum install bc jq pwgen python-pip python-devel gcc git -y \ 
+    && yum install https://centos7.iuscommunity.org/ius-release.rpm -y \
+    && yum install python36u -y \
+    && ln -s /usr/bin/python3.6 /usr/bin/python3
 
 RUN pip install \
  netaddr==0.7.19 \
