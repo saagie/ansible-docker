@@ -5,6 +5,7 @@ RUN  yum install epel-release -y \
     && yum install https://centos7.iuscommunity.org/ius-release.rpm -y \
     && yum install python36u -y \
     && yum install openssl  -y \
+    && yum install sshpass -y \
     && ln -s /usr/bin/python3.6 /usr/bin/python3
 
 RUN pip install \
