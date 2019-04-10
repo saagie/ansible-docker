@@ -1,0 +1,12 @@
+.vagrant/
+.idea/*
+.idea/uiDesigner.xml
+.DS_store
+*.pyc
+*.iml
+Vagrantfile
+.idea/
+inventory-perso-archi.inv
+inventory-perso-commun.inv
+var-perso.yml
+*.retry
