@@ -1,0 +1,38 @@
+ansible25:
+  image: saagie/ansible-docker:latest
+  net: "host"
+  volumes:
+    - ./apollo-capsules:/apollo-capsules
+    - ./ansible-environments:/ansible-environments
+    - ./k8s:/k8s
+    - ./ansible-saagie-infra:/ansible-saagie-infra
+    - ./ceph-ansible:/ceph-ansible
+    - ./ssl-store:/tmp/ssl-store
+    - ./template_generator:/template_generator
+    - ./ssh:/root/.ssh/
+    - ./kube/admin.conf:/root/.kube/config
+  environment:
+    - TILLER_NAMESPACE=""
+  entrypoint:
+    - tail
+    - -f
+    - /dev/null
+ansible26:
+  image: saagie/ansible-docker:2.6
+  net: "host"
+  volumes:
+    - ./apollo-capsules:/apollo-capsules
+    - ./ansible-environments:/ansible-environments
+    - ./k8s:/k8s
+    - ./ansible-saagie-infra:/ansible-saagie-infra
+    - ./ceph-ansible:/ceph-ansible
+    - ./ssl-store:/tmp/ssl-store
+    - ./template_generator:/template_generator
+    - ./ssh:/root/.ssh/
+    - ./kube/admin.conf:/root/.kube/config
+  environment:
+    - TILLER_NAMESPACE=""
+  entrypoint:
+    - tail
+    - -f
+    - /dev/null
