@@ -10,13 +10,11 @@ ansible25:
     - ./ssl-store:/tmp/ssl-store
     - ./template_generator:/template_generator
     - ./ssh:/root/.ssh/
-    - ./kube/admin.conf:/root/.kube/config
+    - ./kube:/root/.kube/
+    - ./helm-release:/root/helm-release
   environment:
-    - TILLER_NAMESPACE=""
-  entrypoint:
-    - tail
-    - -f
-    - /dev/null
+    - TILLER_NAMESPACE=
+  command: bash -c "tail -f /dev/null"
 ansible26:
   image: saagie/ansible-docker:2.6
   net: "host"
@@ -29,10 +27,8 @@ ansible26:
     - ./ssl-store:/tmp/ssl-store
     - ./template_generator:/template_generator
     - ./ssh:/root/.ssh/
-    - ./kube/admin.conf:/root/.kube/config
+    - ./kube:/root/.kube/
+    - ./helm-release:/root/helm-release
   environment:
-    - TILLER_NAMESPACE=""
-  entrypoint:
-    - tail
-    - -f
-    - /dev/null
+    - TILLER_NAMESPACE=
+  command: bash -c "tail -f /dev/null"
