@@ -1,7 +1,7 @@
 FROM centos:centos7
 
 RUN  yum install epel-release -y \
-    && yum install bc jq pwgen python-pip python-devel gcc git libselinux-python wget -y \
+    && yum install bc jq pwgen python-pip python-devel gcc git libselinux-python wget vim -y \
     && yum install https://centos7.iuscommunity.org/ius-release.rpm -y \
     && yum install python36u -y \
     && yum install openssl  -y \
