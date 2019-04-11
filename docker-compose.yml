@@ -7,11 +7,11 @@ ansible25:
     - ./k8s:/k8s
     - ./ansible-saagie-infra:/ansible-saagie-infra
     - ./ceph-ansible:/ceph-ansible
-    - ./ssl-store:/tmp/ssl-store
+    - ./ssl-store:/tmp/ssl-store/certificates
     - ./template_generator:/template_generator
     - ./ssh:/root/.ssh/
     - ./kube:/root/.kube/
-    - ./helm-release:/root/helm-release
+    - ./helm-release:/helm-release
   environment:
     - TILLER_NAMESPACE=
   command: bash -c "tail -f /dev/null"
@@ -24,11 +24,11 @@ ansible26:
     - ./k8s:/k8s
     - ./ansible-saagie-infra:/ansible-saagie-infra
     - ./ceph-ansible:/ceph-ansible
-    - ./ssl-store:/tmp/ssl-store
+    - ./ssl-store:/tmp/ssl-store/certificates
     - ./template_generator:/template_generator
     - ./ssh:/root/.ssh/
     - ./kube:/root/.kube/
-    - ./helm-release:/root/helm-release
+    - ./helm-release:/helm-release
   environment:
     - TILLER_NAMESPACE=
   command: bash -c "tail -f /dev/null"
