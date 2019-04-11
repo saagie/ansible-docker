@@ -1,7 +1,7 @@
 FROM centos:centos7
 
 RUN  yum install epel-release -y \
-    && yum install bc jq pwgen python-pip python-devel gcc git libselinux-python wget vim -y \
+    && yum install bc jq pwgen python-pip python-devel gcc git libselinux-python wget vim bash-completion -y \
     && yum install https://centos7.iuscommunity.org/ius-release.rpm -y \
     && yum install python36u -y \
     && yum install openssl  -y \
@@ -58,6 +58,7 @@ RUN pip install \
 
 COPY files/kubernetes.repo /etc/yum.repos.d/kubernetes.repo
 RUN  yum install -y kubectl-1.12.1
+RUN  kubectl completion bash > /etc/bash_completion.d/kubectl
 
 WORKDIR /tmp
 RUN  wget -q https://storage.googleapis.com/kubernetes-helm/helm-v2.11.0-linux-amd64.tar.gz -O /tmp/helm-2.11.0.tar.gz \
