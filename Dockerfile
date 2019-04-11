@@ -64,3 +64,7 @@ RUN  wget -q https://storage.googleapis.com/kubernetes-helm/helm-v2.11.0-linux-a
     && tar xzf  /tmp/helm-2.11.0.tar.gz \
     && mv linux-amd64/helm /usr/local/bin/helm \
     && rm -rf /tmp/helm-2.11.0.tar.gz /tmp/linux-amd64
+
+WORKDIR /
+ADD files/init.sh .
+ENTRYPOINT ["/init.sh"]
