@@ -68,4 +68,5 @@ RUN  wget -q https://storage.googleapis.com/kubernetes-helm/helm-v2.11.0-linux-a
 
 WORKDIR /
 ADD files/init.sh .
+ADD files/vimrc /root/.vimrc
 ENTRYPOINT ["/init.sh"]
