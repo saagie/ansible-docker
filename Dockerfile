@@ -6,6 +6,7 @@ RUN  yum install epel-release -y \
     && yum install python36u -y \
     && yum install openssl  -y \
     && yum install sshpass -y \
+    && yum install autoconf automake libtool python-devel -y \
     && ln -s /usr/bin/python3.6 /usr/bin/python3
 
 RUN pip install --upgrade pip
@@ -47,6 +48,7 @@ RUN pip install \
     pyasn1-modules==0.2.2 \
     pycparser==2.18 \
     Pygments==2.2.0 \
+    pyjq==2.3.1 \
     PyNaCl==1.2.1 \
     PyYAML==3.13 \
     requests==2.19.1 \
@@ -55,6 +57,8 @@ RUN pip install \
     uritemplate==3.0.0 \
     urllib3==1.23 \
     websocket-client==0.54.0
+
+RUN  yum remove -y autoconf automake libtool python-devel
 
 COPY files/kubernetes.repo /etc/yum.repos.d/kubernetes.repo
 RUN  yum install -y kubectl-1.12.1
