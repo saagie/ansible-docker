@@ -65,10 +65,10 @@ RUN  yum install -y kubectl-1.12.1
 RUN  kubectl completion bash > /etc/bash_completion.d/kubectl
 
 WORKDIR /tmp
-RUN  wget -q https://storage.googleapis.com/kubernetes-helm/helm-v2.11.0-linux-amd64.tar.gz -O /tmp/helm-2.11.0.tar.gz \
-    && tar xzf  /tmp/helm-2.11.0.tar.gz \
+RUN  wget -q https://storage.googleapis.com/kubernetes-helm/helm-v2.14.2-linux-amd64.tar.gz -O /tmp/helm-2.14.2.tar.gz \
+    && tar xzf  /tmp/helm-2.14.2.tar.gz \
     && mv linux-amd64/helm /usr/local/bin/helm \
-    && rm -rf /tmp/helm-2.11.0.tar.gz /tmp/linux-amd64
+    && rm -rf /tmp/helm-2.14.2.tar.gz /tmp/linux-amd64
 
 WORKDIR /
 ADD files/init.sh .
