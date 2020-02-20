@@ -7,6 +7,7 @@ RUN  yum install epel-release -y \
     && yum install openssl  -y \
     && yum install sshpass -y \
     && yum install autoconf automake libtool python-devel -y \
+    && yum install telnet nc -y
 
 RUN pip install --upgrade pip
 
@@ -63,6 +64,9 @@ RUN  yum remove -y autoconf automake libtool python-devel
 COPY files/kubernetes.repo /etc/yum.repos.d/kubernetes.repo
 RUN  yum install -y kubectl-1.12.1
 RUN  kubectl completion bash > /etc/bash_completion.d/kubectl
+
+COPY files/mongorepo.repo /etc/yum.repos.d/mongorepo.repo
+RUN  yum install -y mongodb-org-tools-3.6.14 mongodb-org-shell-3.6.14
 
 WORKDIR /tmp
 RUN  wget -q https://storage.googleapis.com/kubernetes-helm/helm-v2.14.2-linux-amd64.tar.gz -O /tmp/helm-2.14.2.tar.gz \
