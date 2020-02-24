@@ -15,23 +15,6 @@ ansible25:
   environment:
     - TILLER_NAMESPACE=
   command: bash -c "tail -f /dev/null"
-ansible26-2.11.0:
-  image: saagie/ansible-docker:2.6-2.11.0
-  net: "host"
-  volumes:
-    - ./apollo-capsules:/apollo-capsules
-    - ./ansible-environments:/ansible-environments
-    - ./k8s:/k8s
-    - ./ansible-saagie-infra:/ansible-saagie-infra
-    - ./ceph-ansible:/ceph-ansible
-    - ./ssl-store:/tmp/ssl-store/certificates
-    - ./template_generator:/template_generator
-    - ./ssh:/root/.ssh/
-    - ./kube:/root/.kube/
-    - ./helm-release:/helm-release
-  environment:
-    - TILLER_NAMESPACE=
-  command: bash -c "tail -f /dev/null"
 ansible26-2.14.2:
   image: saagie/ansible-docker:2.6-2.14.2
   net: "host"
@@ -49,3 +32,21 @@ ansible26-2.14.2:
   environment:
     - TILLER_NAMESPACE=
   command: bash -c "tail -f /dev/null"
+ansible27-2.14.2:
+  image: saagie/ansible-docker:2.7-2.14.2
+  net: "host"
+  volumes:
+    - ./apollo-capsules:/apollo-capsules
+    - ./ansible-environments:/ansible-environments
+    - ./k8s:/k8s
+    - ./ansible-saagie-infra:/ansible-saagie-infra
+    - ./ceph-ansible:/ceph-ansible
+    - ./ssl-store:/tmp/ssl-store/certificates
+    - ./template_generator:/template_generator
+    - ./ssh:/root/.ssh/
+    - ./kube:/root/.kube/
+    - ./helm-release:/helm-release
+  environment:
+    - TILLER_NAMESPACE=
+  command: bash -c "tail -f /dev/null"
+
