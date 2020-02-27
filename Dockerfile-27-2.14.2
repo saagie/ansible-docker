@@ -69,6 +69,9 @@ RUN  kubectl completion bash > /etc/bash_completion.d/kubectl
 COPY files/mongorepo.repo /etc/yum.repos.d/mongorepo.repo
 RUN  yum install -y mongodb-org-tools-3.6.14 mongodb-org-shell-3.6.14
 
+COPY files/google-cloud-sdk.repo /etc/yum.repos.d/google-cloud-sdk.repo
+RUN  yum install -y install google-cloud-sdk
+
 WORKDIR /tmp
 RUN  wget -q https://storage.googleapis.com/kubernetes-helm/helm-v2.14.2-linux-amd64.tar.gz -O /tmp/helm-2.14.2.tar.gz \
     && tar xzf  /tmp/helm-2.14.2.tar.gz \
