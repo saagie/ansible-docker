@@ -6,8 +6,7 @@ RUN  yum install epel-release -y \
     && yum install python36u -y \
     && yum install openssl  -y \
     && yum install sshpass -y \
-    && yum install autoconf automake libtool python-devel -y \
-    && ln -s /usr/bin/python3.6 /usr/bin/python3
+    && yum install autoconf automake libtool python-devel -y
 
 RUN pip install --upgrade pip
 
@@ -63,6 +62,9 @@ RUN  yum remove -y autoconf automake libtool python-devel
 COPY files/kubernetes.repo /etc/yum.repos.d/kubernetes.repo
 RUN  yum install -y kubectl-1.12.1
 RUN  kubectl completion bash > /etc/bash_completion.d/kubectl
+
+COPY files/google-cloud-sdk.repo /etc/yum.repos.d/google-cloud-sdk.repo
+RUN  yum install -y install google-cloud-sdk
 
 WORKDIR /tmp
 RUN  wget -q https://storage.googleapis.com/kubernetes-helm/helm-v2.14.2-linux-amd64.tar.gz -O /tmp/helm-2.14.2.tar.gz \
